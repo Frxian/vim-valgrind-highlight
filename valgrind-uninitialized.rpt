@@ -1,0 +1,53 @@
+==7929== (action at startup) vgdb me ... 
+==7929== 
+==7929== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==7929==   /path/to/gdb ./rectanglewindow
+==7929== and then give GDB the following command
+==7929==   target remote | /usr/bin/vgdb --pid=7929
+==7929== --pid is optional if only one valgrind process is running
+==7929== 
+==7929== Invalid read of size 123
+==7929==    at 0x5510B4A: QOpenGLShaderProgram::bind() (in /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.15.10)
+==7929==    by 0x11653D: RectangleWindow<QOpenGLWindow>::paintGL() (rectanglewindow.hpp:195)
+==7929==    by 0x5189AC9: QPaintDeviceWindow::exposeEvent(QExposeEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.15.10)
+==7929==    by 0x5157E04: QWindow::event(QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.15.10)
+==7929==    by 0x49D6C81: QApplicationPrivate::notify_helper(QObject*, QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.15.10)
+==7929==    by 0x59C87A7: QCoreApplication::notifyInternal2(QObject*, QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.15.10)
+==7929==    by 0x514CD70: QGuiApplicationPrivate::processExposeEvent(QWindowSystemInterfacePrivate::ExposeEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.15.10)
+==7929==    by 0x511F62B: QWindowSystemInterface::sendWindowSystemEvents(QFlags<QEventLoop::ProcessEventsFlag>) (in /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.15.10)
+==7929==    by 0x511F89F: QWindowSystemInterface::flushWindowSystemEvents(QFlags<QEventLoop::ProcessEventsFlag>) (in /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.15.10)
+==7929==    by 0x59F599F: QObject::event(QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.15.10)
+==7929==    by 0x49D6C81: QApplicationPrivate::notify_helper(QObject*, QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.15.10)
+==7929==    by 0x59C87A7: QCoreApplication::notifyInternal2(QObject*, QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.15.10)
+==7929==  Address 0x8 is not stack'd, malloc'd or (recently) free'd
+==7929== 
+==7929== (action on error) vgdb me ... 
+==7929== 
+==7929== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==7929==   /path/to/gdb ./rectanglewindow
+==7929== and then give GDB the following command
+==7929==   target remote | /usr/bin/vgdb --pid=7929
+==7929== --pid is optional if only one valgrind process is running
+==7929== 
+==7929== Continuing ...
+==7929== 
+==7929== Process terminating with default action of signal 11 (SIGSEGV)
+==7929==  Access not within mapped region at address 0x8
+==7929==    at 0x5510B4A: QOpenGLShaderProgram::bind() (in /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.15.10)
+==7929==    by 0x11653D: RectangleWindow<QOpenGLWindow>::paintGL() (rectanglewindow.hpp:195)
+==7929==    by 0x5189AC9: QPaintDeviceWindow::exposeEvent(QExposeEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.15.10)
+==7929==    by 0x5157E04: QWindow::event(QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.15.10)
+==7929==    by 0x49D6C81: QApplicationPrivate::notify_helper(QObject*, QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.15.10)
+==7929==    by 0x59C87A7: QCoreApplication::notifyInternal2(QObject*, QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.15.10)
+==7929==    by 0x514CD70: QGuiApplicationPrivate::processExposeEvent(QWindowSystemInterfacePrivate::ExposeEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.15.10)
+==7929==    by 0x511F62B: QWindowSystemInterface::sendWindowSystemEvents(QFlags<QEventLoop::ProcessEventsFlag>) (in /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.15.10)
+==7929==    by 0x511F89F: QWindowSystemInterface::flushWindowSystemEvents(QFlags<QEventLoop::ProcessEventsFlag>) (in /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.15.10)
+==7929==    by 0x59F599F: QObject::event(QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.15.10)
+==7929==    by 0x49D6C81: QApplicationPrivate::notify_helper(QObject*, QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.15.10)
+==7929==    by 0x59C87A7: QCoreApplication::notifyInternal2(QObject*, QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.15.10)
+==7929==  If you believe this happened as a result of a stack
+==7929==  overflow in your program's main thread (unlikely but
+==7929==  possible), you can try to increase the size of the
+==7929==  main thread stack using the --main-stacksize= flag.
+==7929==  The main thread stack size used in this run was 8388608.
+==7929== (action on fatal signal) vgdb me ... 

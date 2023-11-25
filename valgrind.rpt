@@ -1,0 +1,29 @@
+==86310== Memcheck, a memory error detector
+==86310== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==86310== Using Valgrind-3.21.0 and LibVEX; rerun with -h for copyright info
+==86310== Command: ./valgrind-memory
+==86310== Parent PID: 5514
+==86310== 
+==86310== Invalid free() / delete / delete[] / realloc()
+==86310==    at 0x484873F: operator delete(void*) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==86310==    by 0x1091A8: main (valgrind-memory.cpp:8)
+==86310==  Address 0x4e06080 is 0 bytes inside a block of size 4 free'd
+==86310==    at 0x484873F: operator delete(void*) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==86310==    by 0x10918D: main (valgrind-memory.cpp:7)
+==86310==  Block was alloc'd at
+==86310==    at 0x4845FA3: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==86310==    by 0x109168: main (valgrind-memory.cpp:5)
+==86310== 
+==86310== 
+Mismatched free() / delete / delete []
+
+Source and destination overlap in memcpy(0xbffff294, 0xbffff280, 21)
+
+==86310== HEAP SUMMARY:
+==86310==     in use at exit: 0 bytes in 0 blocks
+==86310==   total heap usage: 2 allocs, 3 frees, 73,732 bytes allocated
+==86310== 
+==86310== All heap blocks were freed -- no leaks are possible
+==86310== 
+==86310== For lists of detected and suppressed errors, rerun with: -s
+==86310== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
