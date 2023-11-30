@@ -8,7 +8,7 @@ if exists("b:current_syntax")
 endif
 
 " Match index
-syntax match valgrindIndex '==\d+=='
+syntax match valgrindIndex '==\d\+=='
 
 " Match keywords
 syntax match valgrindSummary 'ERROR SUMMARY:'
@@ -22,7 +22,7 @@ syntax match valgrindConinfo 'All heap blocks were freed -- no leaks are possibl
 syntax match valgrindRcinfo '\d\+ errors from \d\+ contexts'
 syntax match valgrindRcinfo 'Address 0x[0-9a-fA-F]\+ is not stack\'d, malloc\'d or (recently) free\'d'
 syntax match valgrindRcinfo 'operator delete'
-syntax match valgrindRcinfo "operator new(\[\])?"
+syntax match valgrindRcinfo "operator new\(\[\]\)\?"
 syntax match valgrindRcinfo 'operator new'
 
 " For testing
@@ -41,17 +41,21 @@ syntax match valgrindProinfo 'Process terminating with default action of signal 
 syntax match valgrindProinfo 'realloc() with size 0'
 syntax match valgrindProinfo 'Source and destination overlap in memcpy(0x[0-9a-fA-F]\+, 0x[0-9a-fA-F]\+, \d\+)'
 syntax match valgrindProinfo 'Syscall param \b\w\+([^\)]*) contains uninitialised byte(s)'
-syntax match valgrindProinfo 'Syscall param \b\w+([^\)]*) points to uninitialised byte(s)'
+syntax match valgrindProinfo 'Syscall param \b\w\+([^\)]*) points to uninitialised byte(s)'
 syntax match valgrindProinfo 'Use of uninitialised value of size \d\+'
 
 " Match call stack
-syntax match valgrindCallstack ''
+syntax match valgrindCallstack '\w\+<\?\w\+>\?::\w\+('
+" syntax match valgrindSourcefiles '(\(in\s\)\?\(\.\*\?\))'
+syntax match valgrindSourcefiles '(\(in\s\)\?\(\.\*\?\):\?\d\+)'
 
 " Set hightlights
 let b:current_syntax = "valgrind"
-highlight default link valgrindSummary Include 
+" highlight valgrindIndex ctermfg=
 highlight default link valgrindIndex Comment
-highlight default link valgrindKeywords Keyword
+highlight default link valgrindSummary Include 
 highlight default link valgrindConinfo Include
 highlight default link valgrindRcinfo Keyword
 highlight default link valgrindProinfo Number 
+highlight default link valgrindCallstack Include 
+highlight default link valgrindSourcefiles Include 
