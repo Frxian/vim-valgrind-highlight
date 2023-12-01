@@ -45,9 +45,13 @@ syntax match valgrindProinfo 'Syscall param \b\w\+([^\)]*) points to uninitialis
 syntax match valgrindProinfo 'Use of uninitialised value of size \d\+'
 
 " Match call stack
-syntax match valgrindCallstack '\w\+<\?\w\+>\?::\w\+('
-" syntax match valgrindSourcefiles '(\(in\s\)\?\(\.\*\?\))'
-syntax match valgrindSourcefiles '(\(in\s\)\?\(\.\*\?\):\?\d\+)'
+syntax match valgrindSourcefiles '(in\s\(.*\)\?)'
+syntax match valgrindSourcefiles '(\(.*\)\?:\d\+)'
+
+" syntax region valgrindCallstackRegion  start='\(at\|by\)\s0x[0-9a-fA-F]\+:' end='(\(.*\)\?:\d\+)' contains=valgrindCallstack
+" syntax region valgrindCallstackRegion1  start='\(at\|by\)\s0x[0-9a-fA-F]\+:' end='(in\s\(.*\)\?)' contains=valgrindCallstack
+" syntax match valgrindCallstack '\s\w\+\s' contained 
+syntax match valgrindCallstack '\w\+<\?\w\+>\?::\w\+(' 
 
 " Set hightlights
 let b:current_syntax = "valgrind"
@@ -57,5 +61,6 @@ highlight default link valgrindSummary Include
 highlight default link valgrindConinfo Include
 highlight default link valgrindRcinfo Keyword
 highlight default link valgrindProinfo Number 
-highlight default link valgrindCallstack Include 
-highlight default link valgrindSourcefiles Include 
+
+highlight default link valgrindSourcefiles Comment 
+highlight default link valgrindCallstack Function 

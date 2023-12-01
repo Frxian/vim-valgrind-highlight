@@ -13,7 +13,8 @@
 ==86310==  Block was alloc'd at
 ==86310==    at 0x4845FA3: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
 ==86310==    by 0x109168: main (valgrind-memory.cpp:5)
-==86310== 
+==86310==    at 0x12343: __get_init_0 (valgrind-memory.cpp:1) 
+==86310==    at 0x12343:0get_init_0 (valgrind-memory.cpp:1) 
 ==86310== 
 Mismatched free() / delete / delete []
 
